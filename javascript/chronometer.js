@@ -1,10 +1,15 @@
 class Chronometer {
   constructor() {
     // ... your code goes here
+    this.currentTime = 0;
+    this.intervalId = null;
   }
 
   start(callback) {
     // ... your code goes here
+    // Ajoute +1 à this.currentTime toutes les 1000ms
+    // Le 3eme argument est facultatif
+   this.currentTime = setInterval( ()=> +1, 1000, [this.currentTime])
   }
 
   getMinutes() {
