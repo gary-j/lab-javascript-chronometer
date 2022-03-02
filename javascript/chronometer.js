@@ -7,11 +7,15 @@ class Chronometer {
 
   start(callback) {
     // ... your code goes here
+
+    if(callback){
+   this.intervalId = setInterval(callback, 1000)
+    }
     // Ajoute +1 à this.currentTime toutes les 1000ms
     // Le 3eme argument est facultatif
-   this.currentTime = setInterval( ()=> +1, 1000, [this.currentTime])
+   this.intervalId = setInterval(()=>this.currentTime++, 1000)
   }
-
+ 
   getMinutes() {
     // ... your code goes here
   }
