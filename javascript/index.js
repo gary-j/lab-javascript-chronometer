@@ -27,6 +27,8 @@ function printMinutes() {
   // console.log(minutes, 'minute(s)');
   minDecElement.textContent = minutes[0];
   minUniElement.textContent = minutes[1];
+
+  return minutes
 }
 
 function printSeconds() {
@@ -36,6 +38,7 @@ function printSeconds() {
   secDecElement.textContent = seconds[0];
   secUniElement.textContent =  seconds[1];
 
+  return seconds
 }
 
 // ==> BONUS
@@ -45,6 +48,18 @@ function printMilliseconds() {
 
 function printSplit() {
   // ... your code goes here
+  // console.log('appel ok de printSplit');
+  // add a <li> in <ol id="splits"></ol>
+  let li = document.createElement('li');
+  splitsElement.appendChild(li);
+
+  // let currentTime = chronometer.currentTime;
+  // let printSplit = chronometer.computeTwoDigitNumber(currentTime);
+  let seconds =chronometer.computeTwoDigitNumber( printSeconds());
+  let minutes = chronometer.computeTwoDigitNumber( printMinutes());
+
+  li.innerHTML = `${minutes}:${seconds}`;
+
 }
 
 function clearSplits() {
@@ -97,4 +112,6 @@ btnLeftElement.addEventListener('click', () => {
 // Reset/Split Button
 btnRightElement.addEventListener('click', () => {
   // ... your code goes here
+
+  printSplit();
 });
