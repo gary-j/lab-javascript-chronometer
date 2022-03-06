@@ -39,12 +39,14 @@ class Chronometer {
 
   stop() {
     // ... your code goes here
+      console.log(this.intervalId, 'ARRET DEMANDE');
     clearInterval(this.intervalId);
   }
 
   reset() {
     // ... your code goes here
     this.currentTime=0;
+    clearInterval(this.intervalId);
   }
 
   split() {
