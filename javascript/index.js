@@ -48,16 +48,17 @@ function printMilliseconds() {
 
 function printSplit() {
   // ... your code goes here
-  // console.log('appel ok de printSplit');
+  // console.log('printSplit calling is OK');
+
   // add a <li> in <ol id="splits"></ol>
   let li = document.createElement('li');
   splitsElement.appendChild(li);
 
-  // let currentTime = chronometer.currentTime;
-  // let printSplit = chronometer.computeTwoDigitNumber(currentTime);
-  let seconds =chronometer.computeTwoDigitNumber( printSeconds());
+  // format the current time
+  let seconds = chronometer.computeTwoDigitNumber( printSeconds());
   let minutes = chronometer.computeTwoDigitNumber( printMinutes());
 
+  // display the current time
   li.innerHTML = `${minutes}:${seconds}`;
 
 }
