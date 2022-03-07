@@ -9,24 +9,35 @@ class Chronometer {
     // ... your code goes here
     // if(callback) par prévention, car elle peut recevoir une callback
     if(callback){
-   this.intervalId = setInterval(callback, 1000)
+   this.intervalId = setInterval(callback, 100)
+  //  this.intervalIdMilli = setInterval(callback, 100)
     }
     // Ajoute +1 à this.currentTime toutes les 1000ms
     // Le 3eme argument est facultatif
-   this.intervalId = setInterval(()=>this.currentTime++, 1000)
+   this.intervalId = setInterval(()=>this.currentTime++, 100)
+  //  this.intervalIdMilli = setInterval(()=>this.MilliCurrentTime++, 100)
+
   }
  
   getMinutes() {
     // ... your code goes here
     //retourne un number de minute
-    let minute = Math.floor(this.currentTime / 60)
+    let minute = Math.floor((this.currentTime) / 600)
     return minute
   }
 
   getSeconds() {
     // ... your code goes here
-    let seconds = Math.floor(this.currentTime % 60);
+    let seconds = Math.floor((this.currentTime / 10) % 60);
     return seconds
+  }
+
+  getMilliSeconds(){
+    let milliseconds = Math.floor((this.currentTime*100 )%99+1)
+    // if (milliseconds === 100){
+    //     milliseconds = 0;
+    // }
+    return milliseconds
   }
 
   computeTwoDigitNumber(value) {
@@ -51,9 +62,10 @@ class Chronometer {
 
   split() {
     // ... your code goes here
+    let milliseconds = this.computeTwoDigitNumber(this.getMilliSeconds());
     let seconds = this.computeTwoDigitNumber(this.getSeconds());
     let minutes = this.computeTwoDigitNumber(this.getMinutes());
-    return `${minutes}:${seconds}`;
+    return `${minutes}:${seconds}:${milliseconds}`;
   }
 }
 
